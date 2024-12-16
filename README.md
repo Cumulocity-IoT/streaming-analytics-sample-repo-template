@@ -7,8 +7,8 @@ This repository gives you a quickstart into Apama development by providing a Vis
 ## Instructions
 
 ### Prerequisites
-1. You need to "buy" the [Apama docker](https://hub.docker.com/_/softwareag-apama-builder) (it is free with community edition, but you need to activate it for your docker account)
-2. In order to deploy to Cumulcoity IoT Cloud you need a tenant with subscribed Apama and Analytics Builder
+1. You need to "buy" the [Apama docker](https://gallery.ecr.aws/apama/apama-builder) (it is free with community edition, but you need to activate it for your docker account)
+2. In order to deploy to Cumulocity Cloud you need a tenant with subscribed Apama and Analytics Builder
 3. Ensure you are logged into your docker account inside Visual Studio Code when you build the devcontainer
 
 ### Before you build
@@ -17,7 +17,7 @@ Before you build the devcontainer within Visual Studio Code you should take a lo
 | Parameter                             | Description                                               | Comments                                      |
 | -------------                         |:-------------:                                            | -----:                                        |
 | APAMA_VERSION                         | the tag of the Apama base container                       | Please see docker hub for available versions  |
-| APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/SoftwareAG/apama-analytics-builder-block-sdk) for the available branches  |
+| APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
 | CUMULOCITY_SERVER_URL                 | The Cumulocity IoT instance to connect to                 |                                               |
 | CUMULOCITY_TENANT                     | The tenantId of your Cumulocity IoT tenant                |                                               |
 | CUMULOCITY_USERNAME                   | The username of your Cumulocity IoT user                  |                                               |
@@ -51,6 +51,6 @@ In order to remove your blocks again from your Cumulocity IoT tenant just run `a
 
 ---
 
-These tools are provided as-is and without warranty or support. They do not constitute part of the Software AG product suite. Users are free to use, fork and modify them, subject to the license agreement. While Software AG welcomes contributions, we cannot guarantee to include every contribution in the master project.
-
-Contact us at [TECHcommunity](mailto:technologycommunity@softwareag.com?subject=Github/SoftwareAG) if you have any questions.
+These tools are provided as-is and without warranty or support. They do not constitute part of the Cumulocity products. Users are free to use, fork and modify them, subject to the license agreement. While Cumulocity welcomes contributions, we cannot guarantee to include every contribution in the main project.
+_____________
+Contact us at https://apamacommunity.com if you have any questions.
