@@ -3,7 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": { 
-			"APAMA_VERSION": "10.7",
+			"APAMA_VERSION": "10.15-ubi9",
 			"APAMA_ANALYTICS_BUILDER_SDK_BRANCH": "rel/10.7.0.x"
 		}
 	},
@@ -20,14 +20,13 @@
 		//"CUMULOCITY_PROXY_USERNAME": "null",
 		//"CUMULOCITY_PROXY_PASSWORD": "null",
 	},
-	"settings": {},
-	"extensions": [
-		"ms-python.python",
-		"slevesque.vscode-zipexplorer",
-		"yzhang.markdown-all-in-one",
-		"apamacommunity.apama-extensions"
-	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"apamacommunity.apama-extensions"
+			]
+		}
+	},
 	"postStartCommand": "",
-	"containerUser": "sagadmin",
 	"overrideCommand": true
 }

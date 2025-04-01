@@ -1,21 +1,12 @@
 ARG APAMA_VERSION
-FROM store/softwareag/apama-builder:${APAMA_VERSION}
+FROM public.ecr.aws/apama/apama-builder:${APAMA_VERSION}
 
 USER root
-RUN microdnf install git
-RUN microdnf install python3
-RUN microdnf install tar
+RUN microdnf install git tar
 
-WORKDIR "/usr/local/bin"
-COPY apama apama
-RUN chmod +x apama
+USER apama 
 
-USER sagadmin
-WORKDIR "/opt/softwareag"
-RUN git clone https://github.com/SoftwareAG/apama-analytics-builder-block-sdk.git
-
-ENV ANALYTICS_BUILDER_SDK=/opt/softwareag/apama-analytics-builder-block-sdk
-WORKDIR ${ANALYTICS_BUILDER_SDK}
+WORKDIR "/home/apama"
+RUN git clone https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk.git
 ARG APAMA_ANALYTICS_BUILDER_SDK_BRANCH
 RUN git checkout ${APAMA_ANALYTICS_BUILDER_SDK_BRANCH}
-ENV PATH="${ANALYTICS_BUILDER_SDK}:${PATH}"

@@ -1,15 +1,18 @@
-# Visual Studio Code - Apama development (incl. Analytics Builder)
+# Apama development container
 
 ## Purpose & how to use
 
-This repository gives you a quickstart into Apama development by providing a Visual Studio Code devcontainer environment for testing and deploying to your Cumulocity IoT Cloud tenant. In order to get started you can simply fork this repository and go through the instructions below.
+This repository specifies a [development container](https://containers.dev/overview), suitable for use for standard Apama development, or for working with the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk).
+
+You can either fork this repository, or copy the `.devcontainer` directory into your existing project.
+
 
 ## Instructions
 
-### Prerequisites
-1. You need to "buy" the [Apama docker](https://gallery.ecr.aws/apama/apama-builder) (it is free with community edition, but you need to activate it for your docker account)
-2. In order to deploy to Cumulocity Cloud you need a tenant with subscribed Apama and Analytics Builder
-3. Ensure you are logged into your docker account inside Visual Studio Code when you build the devcontainer
+### Pre-requisites for Block SDK development
+If you are using this for [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) development, you will need a Cumulocity Cloud tenant, with Streaming Analytics and Analytics Builder subscriber. 
+
+For regular Apama development, you do not need this configured.
 
 ### Before you build
 Before you build the devcontainer within Visual Studio Code you should take a look at the devcontainer.json and adjust the build parameters and environment variables.
