@@ -9,6 +9,7 @@ This repository specifies a [development container](https://containers.dev/overv
 To use this, you can can either fork this repository, or copy the `.devcontainer` directory into your existing project.
 
 ### Pre-requisites for Block SDK development
+
 If you are using this for [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) development, you will need a Cumulocity Cloud tenant, with Streaming Analytics and Analytics Builder subscriber. 
 
 For regular Apama development, you do not need this configured.
@@ -30,29 +31,12 @@ __*Note:*__
 
 *The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. Therefore it also recommended to use the same Apama version in the devcontainer (e.g. if the Cloud is in version 10.7 the same versions should be used in the devcontainer for both Apama and SDK).*
 
-### Starting in Visual Studio Code
-After you finsihed the configuration you can click the devcontainer icon in the bottom left of Visual Studio Code and select `Open Folder in Container...`.
-Once the container has been built and started you should see four folders in your VCS workspace:
-1. Development (the contents of this repository)
-2. Analytics Builder SDK
-3. Analytics Builder SDK Documentation
-4. Apama
+## Legal 
+Prior to executing the Docker Pull Command, downloading, using or installing the accompanying software product, please ensure to read and accept the terms applying to this offering:
 
-## Analytics Builder Development
-
-Please check the SDK documentation for more detailed instructions.
-
-### Testing
-You can find an example pysys project under `Development -> example`. Simply navigate to the folder where the `pysysproject.xml` is located and run `pysys test`.
-
-### Deploying to Cumulocity IoT
-In order to deploy your blocks to your Cumulocity IoT tenant you can simply run `apama blocks deploy <extensionName>` from the folder where your blocks are located ( the .mon files). The extensionName can be freely chosen. You can try it out by navigating to `Development -> example -> blocks` and run the command from there.
-
-### Undeploying from Cumulocity IoT
-In order to remove your blocks again from your Cumulocity IoT tenant just run `apama blocks undeploy <extensionName>`. The extensionName has to be the same as you used when deploying.
-
----
+[LIMITED USE LICENSE AGREEMENT FOR DOCKER IMAGES FROM CUMULOCITY GMBH](https://cumulocity.com/docs/legal-notices/limited-use-license-for-docker/)
 
 These tools are provided as-is and without warranty or support. They do not constitute part of the Cumulocity products. Users are free to use, fork and modify them, subject to the license agreement. While Cumulocity welcomes contributions, we cannot guarantee to include every contribution in the main project.
-_____________
-Contact us at https://apamacommunity.com if you have any questions.
+
+## Questions
+Ask questions at https://techcommunity.cumulocity.com/tag/streaming-analytics-apama.
