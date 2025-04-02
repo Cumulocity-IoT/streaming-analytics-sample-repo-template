@@ -27,6 +27,5 @@
 			]
 		}
 	},
-	"postStartCommand": "",
 	"overrideCommand": true
 }
