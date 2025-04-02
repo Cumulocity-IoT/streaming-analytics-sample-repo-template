@@ -5,6 +5,7 @@ USER root
 RUN microdnf install git tar -y
 
 USER apama 
+ENV SHELL /bin/bash
 
 WORKDIR "/home/apama"
 RUN git clone https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk.git
