@@ -21,15 +21,10 @@ Before you build the devcontainer within Visual Studio Code you should take a lo
 | -------------                         |:-------------:                                            | -----:                                        |
 | APAMA_VERSION                         | the tag of the Apama base container                       | Please see docker hub for available versions  |
 | APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
-| CUMULOCITY_SERVER_URL                 | The Cumulocity IoT instance to connect to                 |                                               |
-| CUMULOCITY_TENANT                     | The tenantId of your Cumulocity IoT tenant                |                                               |
-| CUMULOCITY_USERNAME                   | The username of your Cumulocity IoT user                  |                                               |
-| CUMULOCITY_PASSWORD                   | The username of your Cumulocity IoT password              |                                               |
-| CUMULOCITY_APPKEY                     | The application key the local Apama will use for testing  |                                               |
 
 __*Note:*__
 
-*The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. Therefore it also recommended to use the same Apama version in the devcontainer (e.g. if the Cloud is in version 10.7 the same versions should be used in the devcontainer for both Apama and SDK).*
+*The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. 
 
 ## Legal 
 Prior to executing the Docker Pull Command, downloading, using or installing the accompanying software product, please ensure to read and accept the terms applying to this offering:
