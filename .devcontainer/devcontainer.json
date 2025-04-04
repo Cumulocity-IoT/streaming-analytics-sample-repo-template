@@ -11,7 +11,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"apamacommunity.apama-extensions"
+				"apamacommunity.apama-extensions",
+				"ms-python.python"
 			]
 		}
 	},
