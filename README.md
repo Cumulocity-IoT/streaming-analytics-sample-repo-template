@@ -1,56 +1,62 @@
-# Visual Studio Code - Apama development (incl. Analytics Builder)
+# Cumulocity Streaming Analytics (Apama) development container
 
-## Purpose & how to use
-
-This repository gives you a quickstart into Apama development by providing a Visual Studio Code devcontainer environment for testing and deploying to your Cumulocity IoT Cloud tenant. In order to get started you can simply fork this repository and go through the instructions below.
+## Overview
+This repository specifies a [development container](https://containers.dev/overview), suitable for use for standard Apama development, or for working with the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) & [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools).
 
 ## Instructions
-
-### Prerequisites
-1. You need to "buy" the [Apama docker](https://gallery.ecr.aws/apama/apama-builder) (it is free with community edition, but you need to activate it for your docker account)
-2. In order to deploy to Cumulocity Cloud you need a tenant with subscribed Apama and Analytics Builder
-3. Ensure you are logged into your docker account inside Visual Studio Code when you build the devcontainer
+To use this, you can can either fork this repository, or copy the `.devcontainer` directory into your existing project. Use your DevContainer tool of choice (e.g. Visual Studio Code) to run this.
 
 ### Before you build
-Before you build the devcontainer within Visual Studio Code you should take a look at the devcontainer.json and adjust the build parameters and environment variables.
+Before you build the devcontainer, you might want to adjust some of the values within `.devcontainer/devcontainer.json`.
 
 | Parameter                             | Description                                               | Comments                                      |
 | -------------                         |:-------------:                                            | -----:                                        |
-| APAMA_VERSION                         | the tag of the Apama base container                       | Please see docker hub for available versions  |
+| APAMA_VERSION                         | the tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions  |
 | APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
-| CUMULOCITY_SERVER_URL                 | The Cumulocity IoT instance to connect to                 |                                               |
-| CUMULOCITY_TENANT                     | The tenantId of your Cumulocity IoT tenant                |                                               |
-| CUMULOCITY_USERNAME                   | The username of your Cumulocity IoT user                  |                                               |
-| CUMULOCITY_PASSWORD                   | The username of your Cumulocity IoT password              |                                               |
-| CUMULOCITY_APPKEY                     | The application key the local Apama will use for testing  |                                               |
+| APAMA_EPLAPPS_TOOLS_BRANCH            | the branch/version of the EPL Apps Tools SDK              | Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
 
-__*Note:*__
+__*Note:*__ The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. 
 
-*The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. Therefore it also recommended to use the same Apama version in the devcontainer (e.g. if the Cloud is in version 10.7 the same versions should be used in the devcontainer for both Apama and SDK).*
+## Using Block SDK & EPLApps Tools
+The Block SDK & EPLApps Tools are checked out as siblings to your current workspace folder. This allows you to easily add bundles from either of those projects using `apama_project` (which is accessible from the VSCode extension), or to simply use the, or to simply use them.
 
-### Starting in Visual Studio Code
-After you finsihed the configuration you can click the devcontainer icon in the bottom left of Visual Studio Code and select `Open Folder in Container...`.
-Once the container has been built and started you should see four folders in your VCS workspace:
-1. Development (the contents of this repository)
-2. Analytics Builder SDK
-3. Analytics Builder SDK Documentation
-4. Apama
+### Block SDK cloud operations
+For commands in the Block SDK that require Cloud access, such as "upload", we recommend using a `.env` file.
 
-## Analytics Builder Development
+1. Add `.env` to your `.gitignore` file.
+2. Create a `.env` file with the following format.
 
-Please check the SDK documentation for more detailed instructions.
+```
+CUMULOCITY_SERVER_URL=<URL>
+CUMULOCITY_USERNAME=<USERNAME>
+CUMULOCITY_PASSWORD=<PASSWORD>
+```
 
-### Testing
-You can find an example pysys project under `Development -> example`. Simply navigate to the folder where the `pysysproject.xml` is located and run `pysys test`.
+Replacing `<URL>`, `<USERNAME>` and `<PASSWORD>` with the correct values.
 
-### Deploying to Cumulocity IoT
-In order to deploy your blocks to your Cumulocity IoT tenant you can simply run `apama blocks deploy <extensionName>` from the folder where your blocks are located ( the .mon files). The extensionName can be freely chosen. You can try it out by navigating to `Development -> example -> blocks` and run the command from there.
+3. When you need to perform a Block SDK operation, run `source .env` within your terminal. This will create a terminal instance with the relevant environment variables for authenticating to Cumulocity.
 
-### Undeploying from Cumulocity IoT
-In order to remove your blocks again from your Cumulocity IoT tenant just run `apama blocks undeploy <extensionName>`. The extensionName has to be the same as you used when deploying.
+## Legal notices
+Prior to executing the Docker Pull Command, downloading, using or installing the accompanying software product, please ensure to read and accept the terms applying to this offering:
 
----
+[LIMITED USE LICENSE AGREEMENT FOR DOCKER IMAGES FROM CUMULOCITY GMBH](https://cumulocity.com/docs/legal-notices/limited-use-license-for-docker/)
 
 These tools are provided as-is and without warranty or support. They do not constitute part of the Cumulocity products. Users are free to use, fork and modify them, subject to the license agreement. While Cumulocity welcomes contributions, we cannot guarantee to include every contribution in the main project.
-_____________
-Contact us at https://apamacommunity.com if you have any questions.
+
+## License
+   Copyright 2025-present Cumulocity GmbH
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+## Questions
+Ask questions at https://techcommunity.cumulocity.com/tag/streaming-analytics-apama.

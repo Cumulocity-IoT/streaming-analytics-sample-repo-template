@@ -1,21 +1,29 @@
 ARG APAMA_VERSION
-FROM store/softwareag/apama-builder:${APAMA_VERSION}
+FROM public.ecr.aws/apama/apama-builder:${APAMA_VERSION}
 
 USER root
-RUN microdnf install git
-RUN microdnf install python3
-RUN microdnf install tar
+RUN microdnf install git tar -y
 
-WORKDIR "/usr/local/bin"
-COPY apama apama
-RUN chmod +x apama
+# The mount location.
+RUN mkdir "/workspaces"
+RUN chown apama "/workspaces"
 
-USER sagadmin
-WORKDIR "/opt/softwareag"
-RUN git clone https://github.com/SoftwareAG/apama-analytics-builder-block-sdk.git
+USER apama 
+WORKDIR "/workspaces"
 
-ENV ANALYTICS_BUILDER_SDK=/opt/softwareag/apama-analytics-builder-block-sdk
-WORKDIR ${ANALYTICS_BUILDER_SDK}
+# Check out Block SDK at the mount location.
+RUN git clone https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk.git
 ARG APAMA_ANALYTICS_BUILDER_SDK_BRANCH
+WORKDIR "/workspaces/apama-analytics-builder-block-sdk"
 RUN git checkout ${APAMA_ANALYTICS_BUILDER_SDK_BRANCH}
-ENV PATH="${ANALYTICS_BUILDER_SDK}:${PATH}"
+
+WORKDIR "/workspaces"
+
+# Check out EPLApps Tools at the mount location.
+RUN git clone https://github.com/Cumulocity-IoT/apama-eplapps-tools.git 
+ARG APAMA_EPLAPPS_TOOLS_BRANCH
+WORKDIR "/workspaces/apama-eplapps-tools"
+RUN git checkout ${APAMA_EPLAPPS_TOOLS_BRANCH}
+
+
+ENV SHELL=/bin/bash
