@@ -23,10 +23,18 @@ The Block SDK & EPLApps Tools are checked out as siblings to your current worksp
 ### Block SDK cloud operations
 For commands in the Block SDK that require Cloud access, such as "upload", we recommend using a `.env` file.
 
-1. Copy the `.env` file into your own repository.
-2. Add it to the `.gitignore`, so you don't accidentally commit your credentials into the repository.
-3. Fill out the `.env` file.
-4. When you need to perform a Block SDK operation, run `source .env` within your terminal. This will create a terminal instance with the relevant environment variables for authenticating to Cumulocity.
+1. Add `.env` to your `.gitignore` file.
+2. Create a `.env` file with the following format.
+
+```
+CUMULOCITY_SERVER_URL=<URL>
+CUMULOCITY_USERNAME=<USERNAME>
+CUMULOCITY_PASSWORD=<PASSWORD>
+```
+
+Replacing `<URL>`, `<USERNAME>` and `<PASSWORD>` with the correct values.
+
+3. When you need to perform a Block SDK operation, run `source .env` within your terminal. This will create a terminal instance with the relevant environment variables for authenticating to Cumulocity.
 
 ## Legal 
 Prior to executing the Docker Pull Command, downloading, using or installing the accompanying software product, please ensure to read and accept the terms applying to this offering:
