@@ -4,7 +4,7 @@
 This repository specifies a [development container](https://containers.dev/overview), suitable for use for standard Apama development, or for working with the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) & [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools).
 
 ## Instructions
-To use this, you can can either fork this repository, or copy the `.devcontainer` directory into your existing project. Use your DevContainer tool of choice (e.g. Visual Studio Code) to run this.
+To use this, you can can either fork this repository, or copy the `.devcontainer` directory into your existing project. Use your DevContainer tool of choice (e.g. [Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers)) to run this.
 
 ### Before you build
 Before you build the devcontainer, you might want to adjust some of the values within `.devcontainer/devcontainer.json`.
@@ -54,7 +54,7 @@ These tools are provided as-is and without warranty or support. They do not cons
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   WITHOUT WARRANTIES OR CONDITIONS OF) ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
 
