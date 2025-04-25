@@ -1,5 +1,6 @@
 ARG APAMA_VERSION
-FROM public.ecr.aws/apama/apama-builder:${APAMA_VERSION}
+ARG APAMA_IMAGE
+FROM ${APAMA_IMAGE}:${APAMA_VERSION}
 
 USER root
 RUN microdnf install git tar -y
