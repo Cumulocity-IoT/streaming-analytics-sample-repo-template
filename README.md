@@ -37,6 +37,10 @@ Replacing `<URL>`, `<USERNAME>` and `<PASSWORD>` with the correct values.
 
 3. When you need to perform a Block SDK operation, run `source .env` within your terminal. This will create a terminal instance with the relevant environment variables for authenticating to Cumulocity.
 
+
+## Usage notes
+- You may find the default memory allocated by your containerization tool is not sufficient. We advise having a minimum of 4GB of memory for local development. 
+
 ## Legal notices
 Prior to executing the Docker Pull Command, downloading, using or installing the accompanying software product, please ensure to read and accept the terms applying to this offering:
 
