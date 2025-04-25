@@ -11,7 +11,8 @@ Before you build the devcontainer, you might want to adjust some of the values w
 
 | Parameter                             | Description                                               | Comments                                      |
 | -------------                         |:-------------:                                            | -----:                                        |
-| APAMA_VERSION                         | the tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions  |
+| APAMA_IMAGE                           | the Apama Docker image to use                             | Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images. Note: on versions older than 26, we advise using `public.ecr.aws/apama/apama-cumulocity-builder`. | 
+| APAMA_VERSION                         | the tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions.  |
 | APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
 | APAMA_EPLAPPS_TOOLS_BRANCH            | the branch/version of the EPL Apps Tools SDK              | Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
 
