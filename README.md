@@ -19,7 +19,7 @@ Before you build the devcontainer, you might want to adjust some of the values w
 __*Note:*__ The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. 
 
 ## Using Block SDK & EPLApps Tools
-The Block SDK & EPLApps Tools are checked out as siblings to your current workspace folder. This allows you to easily add bundles from either of those projects using `apama_project` (which is accessible from the VSCode extension), or to simply use the, or to simply use them.
+The Block SDK & EPLApps Tools are checked out as siblings to your current workspace folder. This allows you to easily add bundles from either of those projects using `apama_project` (which is accessible from the VSCode extension), or to simply use them.
 
 ### Block SDK cloud operations
 For commands in the Block SDK that require Cloud access, such as "upload", we recommend using a `.env` file.
