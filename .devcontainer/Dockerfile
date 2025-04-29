@@ -1,13 +1,25 @@
+ARG USERNAME=apama
+ARG USER_UID=1000
+ARG USER_GID=${USER_UID}
+
 ARG APAMA_VERSION
 ARG APAMA_IMAGE
 FROM ${APAMA_IMAGE}:${APAMA_VERSION}
+
+# Re-declare ARGs needed after FROM
+ARG USERNAME
+ARG USER_UID
+ARG USER_GID
 
 USER root
 RUN microdnf install git tar -y
 
 # The mount location.
 RUN mkdir "/workspaces"
-RUN chown apama "/workspaces"
+
+RUN groupmod --gid ${USER_GID} ${USERNAME} \
+    && usermod --uid ${USER_UID} --gid ${USER_GID} ${USERNAME} \
+    && chown -R ${USER_UID}:${USER_GID} /workspaces
 
 USER apama 
 WORKDIR "/workspaces"
