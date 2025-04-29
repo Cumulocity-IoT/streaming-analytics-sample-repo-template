@@ -17,5 +17,6 @@
 			]
 		}
 	},
-	"overrideCommand": true
+	"overrideCommand": true,
+	"remoteUser": "apama"
 }
