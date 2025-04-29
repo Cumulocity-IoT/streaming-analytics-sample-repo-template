@@ -3,6 +3,8 @@
 ## Overview
 This repository specifies a [development container](https://containers.dev/overview), suitable for use for standard Apama development, or for working with the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) & [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools).
 
+This version of the development container is for the 10.15 branch of Apama.
+
 ## Instructions
 To use this, you can either fork this repository, or copy the `.devcontainer` directory into your existing project. Use your DevContainer tool of choice (e.g. [Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers)) to run this.
 
@@ -11,8 +13,8 @@ Before you build the devcontainer, you might want to adjust some of the values w
 
 | Parameter                             | Description                                               | Comments                                      |
 | -------------                         |:-------------:                                            | -----:                                        |
-| APAMA_IMAGE                           | the Apama Docker image to use                             | Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images.  | 
-| APAMA_VERSION                         | the tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions.  |
+| APAMA_IMAGE                           | the Apama Docker image to use                             | Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images. Note: the Dockerfile on this version of the branch is only compatible with RHEL UBI images.  | 
+| APAMA_VERSION                         | the tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions. Note: the Dockerfile on this version of the branch is only compatible with RHEL UBI images.  |
 | APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
 | APAMA_EPLAPPS_TOOLS_BRANCH            | the branch/version of the EPL Apps Tools SDK              | Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
 
