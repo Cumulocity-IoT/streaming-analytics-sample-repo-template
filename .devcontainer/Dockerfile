@@ -2,7 +2,7 @@ ARG APAMA_VERSION
 ARG APAMA_IMAGE
 FROM ${APAMA_IMAGE}:${APAMA_VERSION}
 
-ARG USERNAME=apama-container
+ARG USERNAME=apama
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 
@@ -11,9 +11,10 @@ RUN apt update && apt install git tar -y
 
 # The mount location.
 RUN mkdir "/workspaces"
+RUN mkdir "/home/${USERNAME}"
 
-RUN groupadd --gid ${USER_GID} ${USERNAME} \
-    && useradd --uid ${USER_UID} --gid ${USER_GID} ${USERNAME} -m \
+RUN groupmod --gid ${USER_GID} ${USERNAME} \
+    && usermod --uid ${USER_UID} --gid ${USER_GID} ${USERNAME} -d "/home/${USERNAME}" \
     && chown -R ${USER_UID}:${USER_GID} /workspaces \
     && chown -R ${USER_UID}:${USER_GID} /home/${USERNAME}
 

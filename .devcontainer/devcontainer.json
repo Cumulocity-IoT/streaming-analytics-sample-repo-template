@@ -18,5 +18,5 @@
 		}
 	},
 	"overrideCommand": true,
-	"remoteUser": "apama-container"
+	"remoteUser": "apama"
 }
