@@ -1,13 +1,10 @@
-/*
- * $Copyright (c) 2021 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.$
- * This file is licensed under the Apache 2.0 license - see https://www.apache.org/licenses/LICENSE-2.0
- *
- */
-/* ***DISCLAIMER***
- *
- * This is only a sample block and there is no support for this block. This block only supports English. There may be incompatible changes in the future releases without prior notice.
- * To use this block, we recommend that you copy it and change the package name. Software AG accepts no responsibility for bug fixes, maintenance or adding new features to this block.
- */
+// Copyright (c) 2013-present Cumulocity GmbH, Duesseldorf, Germany and/or its affiliates and/or their licensors.
+// This file is licensed under the Apache 2.0 license - see https://www.apache.org/licenses/LICENSE-2.0
+
+// Disclaimer: This is only a sample block and there is no support for this block. 
+// This block only supports English. There may be incompatible changes in the future releases without prior notice.
+// To use this block, we recommend that you copy it and change the package name. 
+// We accept no responsibility for bug fixes, maintenance or adding new features to this block.
 
 package apamax.analyticsbuilder.devenv.samples;
 
@@ -21,13 +18,13 @@ event LogOutput_$Parameters {
 	string logLevel;
 
 	/** DEBUG */
-    constant string logLevel_debug := "DEBUG";
+	constant string logLevel_debug := "DEBUG";
 	/** INFO */
-    constant string logLevel_info := "INFO";
+	constant string logLevel_info := "INFO";
 	/** WARN */
-    constant string logLevel_warn := "WARN";
+	constant string logLevel_warn := "WARN";
 	/** ERROR */
-    constant string logLevel_error := "ERROR";
+	constant string logLevel_error := "ERROR";
 
 	constant string $DEFAULT_logLevel := "INFO";
 }
@@ -40,7 +37,7 @@ event LogOutput_$Parameters {
  */
 event LogOutput {
 	
-	/**BlockBase object.
+	/** BlockBase object.
 	 *
 	 * This is initialized by the framework when the block is required for a model.
 	 */
