@@ -14,7 +14,7 @@ Getting started is easy - just go to GitHub and select "Use this template".
 
 You can work on your repository locally by creating a new repository from this template then using Microsoft Visual Studio code, following the getting started instructions at https://marketplace.visualstudio.com/items?itemName=ApamaCommunity.apama-extensions. You can either use the container directly, or open it directly (e.g. in WSL on Windows) by performing a `git clone` of this repository, with a clone of the Block SDK and EPL Apps Tools SDKs alongside it. Note: if using a container, you may find the default memory allocated by your containerization tool needs to be increased from the default. We advise having a minimum of 4GB of memory for local development. You can try out your blocks and apps using the PySys testcases under the `tests/` directory.
 
-Alternatively, GitHub provides an option to immediately start working with the template using a codespace (if this is enabled by your GitHub administrator). 
+Alternatively, GitHub provides an option to immediately start working with the template using a codespace (if this is enabled by your GitHub administrator). You will need to wait a short time for the container to download, and then a little longer for it to load extensions such as Apama which provide syntax highlighting and other assistance features. 
 
 For more samples (and sample testcases), see the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories.
 
