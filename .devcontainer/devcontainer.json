@@ -17,8 +17,10 @@
 			]
 		}
 	},
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspacesX/${localWorkspaceFolderBasename},type=bind",
-	"workspaceFolder": "/workspacesX/${localWorkspaceFolderBasename}",
+	"postCreateCommand":[
+		"ln -s /home/apama/analytics-builder-sdk /workspaces/analytics-builder-sdk",
+		"ln -s /home/apama/eplapps-tools /workspaces/eplapps-tools"
+	],
 	"forwardPorts": [15904],
 	"overrideCommand": true,
 	"remoteUser": "apama"

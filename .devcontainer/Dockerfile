@@ -9,32 +9,28 @@ ARG USER_GID=${USER_UID}
 USER root
 RUN apt update && apt install git tar -y
 
-# The mount location.
-RUN mkdir "/workspaces"
-RUN mkdir "/home/${USERNAME}"
-
 RUN groupmod --gid ${USER_GID} ${USERNAME} \
-    && usermod --uid ${USER_UID} --gid ${USER_GID} ${USERNAME} -d "/home/${USERNAME}" \
-    && chown -R ${USER_UID}:${USER_GID} /workspaces \
-    && chown -R ${USER_UID}:${USER_GID} /home/${USERNAME}
+    && usermod --uid ${USER_UID} --gid ${USER_GID} ${USERNAME} -d "/home/${USERNAME}"
+
+RUN mkdir "/workspaces" && chown -R ${USER_UID}:${USER_GID} "/workspaces" \
+  && mkdir "/home/${USERNAME}" && chown -R ${USER_UID}:${USER_GID} "/home/${USERNAME}"
 
 USER ${USERNAME}
-WORKDIR "/workspaces"
 
-# Check out Block SDK at the mount location.
-RUN git clone https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk.git
+# Clone the SDKs. We clone under the home dir because "/workspaces" gets overwritten by the mount
+# (and devcontainer.json workspaceMount is not respected in many cases - https://github.com/microsoft/vscode-remote-release/issues/3034)
 ARG APAMA_ANALYTICS_BUILDER_SDK_BRANCH
-WORKDIR "/workspaces/apama-analytics-builder-block-sdk"
-RUN git checkout ${APAMA_ANALYTICS_BUILDER_SDK_BRANCH}
+RUN git clone https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk.git --branch ${APAMA_ANALYTICS_BUILDER_SDK_BRANCH} /home/${USERNAME}/apama-analytics-builder-block-sdk
 
-WORKDIR "/workspaces"
-
-# Check out EPLApps Tools at the mount location.
-RUN git clone https://github.com/Cumulocity-IoT/apama-eplapps-tools.git 
 ARG APAMA_EPLAPPS_TOOLS_BRANCH
-WORKDIR "/workspaces/apama-eplapps-tools"
-RUN git checkout ${APAMA_EPLAPPS_TOOLS_BRANCH}
+RUN git clone https://github.com/Cumulocity-IoT/apama-eplapps-tools.git /home/${USERNAME}/apama-eplapps-tools --branch ${APAMA_EPLAPPS_TOOLS_BRANCH}
 
+# Link the SDKs to the root dir so we can find them from /workspaces using a relative path
+USER root
+RUN ln -s /home/${USERNAME}/apama-analytics-builder-block-sdk /apama-analytics-builder-block-sdk \
+  && ln -s /home/${USERNAME}/apama-eplapps-tools /apama-eplapps-tools
+
+USER ${USERNAME}
 WORKDIR "/workspaces"
 
 ENV SHELL=/bin/bash
