@@ -1,33 +1,31 @@
-# Cumulocity Streaming Analytics (Apama) development container
+# Sample repository template for your Cumulocity Streaming Analytics (Apama) applications
 
-## Overview
-This repository specifies a [development container](https://containers.dev/overview), suitable for use for standard Apama development, or for working with the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) & [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools).
+If you're building your own EPL apps or Analytics Builder Blocks and want to store them in a GitHub repository, copying this template provides a great starting point. 
 
-This version of the development container is for the 26.x branch of Apama. Please see the `10.15` branch for running this on older lines.
+It contains an Apama project that is already configured with the required bundles, an Apama `.gitignore` file, and placeholders to show where you could put your own blocks, EPL apps and tests. It also includes a [Development Container](https://containers.dev/overview) configuration for quickly getting started using either [Microsoft Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) or [GitHub Codespaces](https://github.com/features/codespaces). 
 
-## Instructions
-To use this, you can either fork this repository, or copy the `.devcontainer` directory into your existing project. Use your DevContainer tool of choice (e.g. [Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers)) to run this.
+If you are using the development container, the latest version of the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories are automatically available (in the parent of the parent directory of this repository, e.g. `myrepo/../../apama-analytics-builder-block-sdk`). If not, you need to clone those repositories yourself in that location. If you only doing EPL apps or block development but not both, you can delete the test and sample directories you are not interested in. 
 
-### Before you build
-Before you build the devcontainer, you might want to adjust some of the values within `.devcontainer/devcontainer.json`.
+The main branch of this repository is for the current cloud version of Streaming Analytics (currently 26.x).
 
-| Parameter                             | Description                                               | Comments                                      |
-| -------------                         |:-------------:                                            | -----:                                        |
-| APAMA_IMAGE                           | the Apama Docker image to use                             | Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images.  | 
-| APAMA_VERSION                         | the tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images.  |
-| APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | the branch/version of the Analytics Builder SDK           | Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
-| APAMA_EPLAPPS_TOOLS_BRANCH            | the branch/version of the EPL Apps Tools SDK              | Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
+### Getting started
 
-__*Note:*__ The Analytics Builder SDK needs to be in the same version as the Apama in the Cloud when you want to deploy. 
+Getting started is easy - just go to GitHub and select "Use this template". 
 
-## Using Block SDK & EPLApps Tools
-The Block SDK & EPLApps Tools are checked out as siblings to your current workspace folder. This allows you to easily add bundles from either of those projects using `apama_project` (which is accessible from the VSCode extension), or to simply use them.
+To work on your code locally, create a new repository from this template, then open it in Microsoft Visual Studio code by entering `Dev Containers: Clone Repository in Container Volume` into the command palette (`F1`) and then providing the HTTPS address of your repository. For details, follow the getting started instructions at https://marketplace.visualstudio.com/items?itemName=ApamaCommunity.apama-extensions. You can either use the dev container directly, or open it directly (e.g. in WSL on Windows) by performing a `git clone` of this repository, with a clone of the Block SDK and EPL Apps Tools SDKs alongside it.  You can try out your blocks and apps using the PySys testcases under the `tests/` directory.
 
-### Block SDK cloud operations
-For commands in the Block SDK that require Cloud access, such as "upload", we recommend using a `.env` file.
+Alternatively, GitHub provides an option to immediately start working with the template using a codespace (if this is enabled by your GitHub administrator). You will need to wait for it to build the codespace, and then a little longer for it to load the extensions before you will see the syntax highlighting and other assistance features enabled. 
 
-1. Add `.env` to your `.gitignore` file.
-2. Create a `.env` file with the following format.
+For more samples (and sample testcases), see the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories.
+
+### Keeping up to date
+
+You should regularly update your Apama installation, SDKs and OS packages to ensure you have the latest fixes, security updates and features. 
+
+When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` from the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything updated using both OS commands (e.g. `apt`) and `git pull` (for the SDKs). 
+
+### Cumulocity cloud operations
+For commands in the Block SDK or running block or EPL apps tests that require Cloud access (for example to upload to your tenant), we recommend creating a `.env` file in this directory, for example:
 
 ```
 CUMULOCITY_SERVER_URL=<URL>
@@ -35,35 +33,42 @@ CUMULOCITY_USERNAME=<USERNAME>
 CUMULOCITY_PASSWORD=<PASSWORD>
 ```
 
-Replacing `<URL>`, `<USERNAME>` and `<PASSWORD>` with the correct values.
+Just replace `<URL>`, `<USERNAME>` and `<PASSWORD>` with the correct values. 
 
-3. When you need to perform a Block SDK operation, run `source .env` within your terminal. This will create a terminal instance with the relevant environment variables for authenticating to Cumulocity.
+Before running commands that interact with the Cloud, execute `source .env` into your terminal. This will set the relevant environment variables for authenticating to Cumulocity. 
 
+__Important: since this file contains credentials, never commit the `.env` file or put it in a location others could access. This repository has a `.gitignore` rule to help avoid that mistake.__
 
-## Usage notes
-- You may find the default memory allocated by your containerization tool is not sufficient. We advise having a minimum of 4GB of memory for local development. 
+### Advanced: customizing the Dev Container
+If needed you can adjust some of the values within `.devcontainer/devcontainer.json` to use different base images and versions of the SDKs:
+
+| Parameter                             | Description                                               | Comments                                      |
+| -------------                         |:-------------:                                            | -----:                                        |
+| APAMA_IMAGE                           | The base image containing Apama                           | The default is `apama-builder`. Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images. | 
+| APAMA_VERSION                         | The tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images.  |
+| APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | The branch/version of the Analytics Builder SDK           | The default is `main`. Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
+| APAMA_EPLAPPS_TOOLS_BRANCH            | The branch/version of the EPL Apps Tools SDK              | The default is `main`. Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
+
+__*Note:*__ The SDKs need to be for the same release line as the Streaming Analytics release in the Cloud that you want to deploy to. 
 
 ## Legal notices
-Prior to executing the Docker Pull Command, downloading, using or installing the accompanying software product, please ensure to read and accept the terms applying to this offering:
-
-[LIMITED USE LICENSE AGREEMENT FOR DOCKER IMAGES FROM CUMULOCITY GMBH](https://cumulocity.com/docs/legal-notices/limited-use-license-for-docker/)
+Copyright 2025-present Cumulocity GmbH
 
 These tools are provided as-is and without warranty or support. They do not constitute part of the Cumulocity products. Users are free to use, fork and modify them, subject to the license agreement. While Cumulocity welcomes contributions, we cannot guarantee to include every contribution in the main project.
 
-## License
-   Copyright 2025-present Cumulocity GmbH
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
 
-       http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF) ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Prior to executing a `docker pull` command, or otherwise downloading, using or installing any containers, please ensure to read and accept the terms applying to the docker images: [LIMITED USE LICENSE AGREEMENT FOR DOCKER IMAGES FROM CUMULOCITY GMBH](https://cumulocity.com/docs/legal-notices/limited-use-license-for-docker/)
 
 ## Questions
-Ask questions at https://techcommunity.cumulocity.com/tag/streaming-analytics-apama.
+Ask questions at: https://techcommunity.cumulocity.com/tag/streaming-analytics-apama
