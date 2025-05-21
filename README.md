@@ -18,6 +18,12 @@ Alternatively, GitHub provides an option to immediately start working with the t
 
 For more samples (and sample testcases), see the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories.
 
+### Keeping up to date
+
+You should regularly update to the latest Apama installation, SDKs and OS packages to ensure you have the latest fixes, security updates and features. 
+
+When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` in the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. 
+
 ### Block SDK cloud operations
 For commands in the Block SDK that require Cloud access, such as "upload", we recommend using a `.env` file.
 
