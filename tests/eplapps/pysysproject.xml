@@ -40,4 +40,11 @@
 	<pysysdirconfig>
 		<input-dir>!INPUT_DIR_IF_PRESENT_ELSE_TEST_DIR!</input-dir>
 	</pysysdirconfig>
+
+	<project-help>
+		To allow these tests to interact with your Cumulocity cloud tenant, create a .env file 
+		that sets the CUMULOCITY_SERVER_URL and CUMULOCITY_USERNAME/PASSWORD variables and 
+		"source" it before running the tests. 
+	</project-help>
+
 </pysysproject>
