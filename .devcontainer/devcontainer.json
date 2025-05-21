@@ -17,8 +17,8 @@
 			]
 		}
 	},
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspacesX/${localWorkspaceFolderBasename},type=bind",
+	"workspaceFolder": "/workspacesX/${localWorkspaceFolderBasename}",
 	"forwardPorts": [15904],
 	"overrideCommand": true,
 	"remoteUser": "apama"
