@@ -35,4 +35,6 @@ ARG APAMA_EPLAPPS_TOOLS_BRANCH
 WORKDIR "/workspaces/apama-eplapps-tools"
 RUN git checkout ${APAMA_EPLAPPS_TOOLS_BRANCH}
 
+WORKDIR "/workspaces"
+
 ENV SHELL=/bin/bash
