@@ -6,7 +6,7 @@
 	<catalogs>
 	</catalogs>
 	<bundles>
-		<bundle file="../apama-analytics-builder-block-sdk/bundles/CumulocityHelper.bnd" origin-path="" origin="PROJECT_RELATIVE">
+		<bundle file="../../apama-analytics-builder-block-sdk/bundles/CumulocityHelper.bnd" origin-path="" origin="PROJECT_RELATIVE">
 			<instance name=""/>
 			<config-files>
 			</config-files>
