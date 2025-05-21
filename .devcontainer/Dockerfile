@@ -1,5 +1,5 @@
-ARG APAMA_VERSION
-ARG APAMA_IMAGE
+ARG APAMA_VERSION=latest
+ARG APAMA_IMAGE=public.ecr.aws/apama/apama-builder
 FROM ${APAMA_IMAGE}:${APAMA_VERSION}
 
 ARG USERNAME=apama
@@ -19,10 +19,10 @@ USER ${USERNAME}
 
 # Clone the SDKs. We clone under the home dir because "/workspaces" gets overwritten by the mount
 # (and devcontainer.json workspaceMount is not respected in many cases - https://github.com/microsoft/vscode-remote-release/issues/3034)
-ARG APAMA_ANALYTICS_BUILDER_SDK_BRANCH
+ARG APAMA_ANALYTICS_BUILDER_SDK_BRANCH=main
 RUN git clone https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk.git --branch ${APAMA_ANALYTICS_BUILDER_SDK_BRANCH} /home/${USERNAME}/apama-analytics-builder-block-sdk
 
-ARG APAMA_EPLAPPS_TOOLS_BRANCH
+ARG APAMA_EPLAPPS_TOOLS_BRANCH=main
 RUN git clone https://github.com/Cumulocity-IoT/apama-eplapps-tools.git /home/${USERNAME}/apama-eplapps-tools --branch ${APAMA_EPLAPPS_TOOLS_BRANCH}
 
 # Link the SDKs to the root dir so we can find them from /workspaces/projectdir using a relative path
