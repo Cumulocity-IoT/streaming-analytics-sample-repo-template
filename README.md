@@ -1,18 +1,18 @@
-# Cumulocity Streaming Analytics (Apama) sample repository template
+# Sample repository template for your Cumulocity Streaming Analytics (Apama) applications
 
-If you're building your own EPL apps or Analytics Builder Blocks, you can fork this template as a convenient starting point. 
+If you're building your own EPL apps or Analytics Builder Blocks and want to store them in a GitHub repository, copying this template provides a great starting point. 
 
-It contains an Apama project that is already configured with the required bundles, an Apama-ready `gitignore` file, and placeholders to show where you could put your own blocks, EPL apps and tests. It also includes a [Development Container](https://containers.dev/overview) configuration for quickly getting started using either [Microsoft Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) or [GitHub Codespaces](https://github.com/features/codespaces). 
+It contains an Apama project that is already configured with the required bundles, an Apama `gitignore` file, and placeholders to show where you could put your own blocks, EPL apps and tests. It also includes a [Development Container](https://containers.dev/overview) configuration for quickly getting started using either [Microsoft Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) or [GitHub Codespaces](https://github.com/features/codespaces). 
 
-If you are using the development container, the latest version of the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories are automatically available as sibling directories next to this repository. If not, you need to clone those repositories yourself. If you are not doing both both EPL apps and block development, you can delete the directories you are not interested in. 
+If you are using the development container, the latest version of the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories are automatically available as sibling directories next to this repository. If not, you need to clone those repositories yourself (alongside this repository). If you are not doing _both_ EPL apps and block development, you can delete the directories you are not interested in. 
 
-The main branch of this repository is for the current cloud version of Streaming Analytics (currently 26.x). Please use the `10.15` branch for running this on older lines.
+The main branch of this repository is for the current cloud version of Streaming Analytics (currently 26.x).
 
 ### Getting started
 
 Getting started is easy - just go to GitHub and select "Use this template". 
 
-You can work on your repository locally by creating a new repository from this template then using Microsoft Visual Studio code, following the getting started instructions at https://marketplace.visualstudio.com/items?itemName=ApamaCommunity.apama-extensions. You can either use the container directly, or open it directly (e.g. in WSL on Windows) by performing a `git clone` of this repository, with a clone of the Block SDK and EPL Apps Tools SDKs alongside it. Note: if using a container, you may find the default memory allocated by your containerization tool needs to be increased from the default. We advise having a minimum of 4GB of memory for local development. You can try out your blocks and apps using the PySys testcases under the `tests/` directory.
+You can work on your repository locally by creating a new repository from this template, then using Microsoft Visual Studio code. For details, follow the getting started instructions at https://marketplace.visualstudio.com/items?itemName=ApamaCommunity.apama-extensions. You can either use the container directly, or open it directly (e.g. in WSL on Windows) by performing a `git clone` of this repository, with a clone of the Block SDK and EPL Apps Tools SDKs alongside it. Note: if using a container, you may find the default memory allocated by your containerization tool needs to be increased from the default. We advise having a minimum of 4GB of memory for local development. You can try out your blocks and apps using the PySys testcases under the `tests/` directory.
 
 Alternatively, GitHub provides an option to immediately start working with the template using a codespace (if this is enabled by your GitHub administrator). You will need to wait a short time for the container to download, and then a little longer for it to load extensions such as Apama which provide syntax highlighting and other assistance features. 
 
