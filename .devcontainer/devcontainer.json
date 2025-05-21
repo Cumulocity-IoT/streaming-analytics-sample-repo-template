@@ -1,5 +1,5 @@
 {
-	"name": "analytics-development",
+	"name": "cumulocity-streaming-analytics-development",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": { 
@@ -17,6 +17,9 @@
 			]
 		}
 	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"forwardPorts": [15904],
 	"overrideCommand": true,
 	"remoteUser": "apama"
 }
