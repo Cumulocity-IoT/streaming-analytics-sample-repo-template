@@ -22,7 +22,7 @@ For more samples (and sample testcases), see the [Block SDK](https://github.com/
 
 You should regularly update to the latest Apama installation, SDKs and OS packages to ensure you have the latest fixes, security updates and features. 
 
-When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` in the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. 
+When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` in the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything up to date using both OS commands (e.g. `apt`) and `git pull` (for the SDKs). 
 
 ### Block SDK cloud operations
 For commands in the Block SDK that require Cloud access, such as "upload", we recommend using a `.env` file.
