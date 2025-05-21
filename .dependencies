@@ -17,7 +17,21 @@
 			<dashboard-files>
 			</dashboard-files>
 			<evt-files>
-				<file name="${APAMA_HOME}/monitors/AutomaticOnApplicationInitialized.evt" timestamp="1745482976927"/>
+				<file name="${APAMA_HOME}/monitors/AutomaticOnApplicationInitialized.evt" timestamp="1746484900305"/>
+			</evt-files>
+		</bundle>
+		<bundle file="../../apama-eplapps-tools/bundles/EPLApps.bnd" origin-path="" origin="PROJECT_RELATIVE">
+			<instance name=""/>
+			<config-files>
+			</config-files>
+			<bundle-instance-files>
+			</bundle-instance-files>
+			<static-files>
+			</static-files>
+			<dashboard-files>
+			</dashboard-files>
+			<evt-files>
+				<file name="${APAMA_HOME}/monitors/AutomaticOnApplicationInitialized.evt" timestamp="1746484900305"/>
 			</evt-files>
 		</bundle>
 	</bundles>
