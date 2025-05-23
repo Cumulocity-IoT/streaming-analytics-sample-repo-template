@@ -1,6 +1,10 @@
 # .env file for security
 .env
 
+# Apama project structure
+logs/**
+*.log
+
 # Python
 __pycache__/
 *.py[cod]
