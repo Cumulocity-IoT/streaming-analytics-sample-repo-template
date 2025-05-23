@@ -8,13 +8,15 @@ This template contains an Apama project that is already configured with the requ
 
 If you are using the development container, the latest version of the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories are automatically available (in the parent of the parent directory of this repository, e.g. `myrepo/../../apama-analytics-builder-block-sdk`). If not, you need to clone those repositories yourself in that location. If you only doing EPL apps or block development but not both, you can delete the test and sample directories you are not interested in. 
 
-The main branch of this repository is for the current cloud version of Streaming Analytics (currently 26.x).
+This branch is for the Apama 10.15 (the Streaming Analytics 2025 release). Use the `main` branch for the current cloud version of Streaming Analytics.
+
+NOTE: Currently `devcontainer.json` pulls the Block SDK and EPL Apps Tools from the `main` branch (which holds the SDK versions designed for the current cloud version). You may wish to change this to `rel/y2025`, but at the moment the bundle files in that branch do not use the relative paths required to locate them from VS Code. 
 
 ### Getting started
 
 Getting started is easy - just go to GitHub and select "Use this template". 
 
-To work on your code locally, create a new repository from this template, then open it in Microsoft Visual Studio code by entering `Dev Containers: Clone Repository in Container Volume` into the command palette (`F1`) and then providing the HTTPS address of your repository. For details, follow the getting started instructions at https://marketplace.visualstudio.com/items?itemName=ApamaCommunity.apama-extensions. You can try out your blocks and apps using the PySys testcases under the `tests/` directory.
+To work on your code locally, create a new repository from this template, then open it in Microsoft Visual Studio code by entering `Dev Containers: Clone Repository in Container Volume` into the command palette (`F1`) and then providing the `https://` address of your repository. For details, follow the getting started instructions at https://marketplace.visualstudio.com/items?itemName=ApamaCommunity.apama-extensions. You can try out your blocks and apps using the PySys testcases under the `tests/` directory.
 
 Alternatively, GitHub provides an option to immediately start working with the template using a codespace (if this is enabled by your GitHub administrator). You will need to wait for it to build the codespace, and then a little longer for it to load the extensions before you will see the syntax highlighting and other assistance features enabled. 
 
@@ -24,7 +26,7 @@ For more samples (and sample testcases) for working with Blocks and EPL Apps, se
 
 You should regularly update your Apama installation, SDKs and OS packages to ensure you have the latest fixes, security updates and features. 
 
-When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` from the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything updated using both OS commands (e.g. `apt`) and `git pull` (for the SDKs). 
+When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` from the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything updated using both OS commands (e.g. `microdnf`) and `git pull` (for the SDKs). 
 
 ### Cumulocity cloud operations
 For commands in the Block SDK or running block or EPL apps tests that require Cloud access (for example to upload to your tenant), we recommend creating a `.env` file in this directory, for example:
@@ -46,10 +48,10 @@ If needed you can adjust some of the values within `.devcontainer/devcontainer.j
 
 | Parameter                             | Description                                               | Comments                                      |
 | -------------                         |:-------------:                                            | -----:                                        |
-| APAMA_IMAGE                           | The base image containing Apama                           | The default is `apama-builder`. Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images. | 
-| APAMA_VERSION                         | The tag of the Apama base container                       | The default is `latest`. Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images.  |
-| APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | The branch/version of the Analytics Builder SDK           | The default is `main`. Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
-| APAMA_EPLAPPS_TOOLS_BRANCH            | The branch/version of the EPL Apps Tools SDK              | The default is `main`. Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
+| APAMA_IMAGE                           | The base image containing Apama                           | Please see [Amazon ECR](https://gallery.ecr.aws/apama) for available images. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images. | 
+| APAMA_VERSION                         | The tag of the Apama base container                       | Please see [Amazon ECR](https://gallery.ecr.aws/apama/apama-builder) for available versions. Note: the Dockerfile on this version of the branch is only compatible with Debian-based images.  |
+| APAMA_ANALYTICS_BUILDER_SDK_BRANCH    | The branch/version of the Analytics Builder SDK           | The default is currently `main`. Please see [Github](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) for the available branches  |
+| APAMA_EPLAPPS_TOOLS_BRANCH            | The branch/version of the EPL Apps Tools SDK              | The default is currently `main`. Please see [Github](https://github.com/Cumulocity-IoT/apama-eplapps-tools) for the available branches  |
 
 __*Note:*__ The SDKs need to be for the same release line as the Streaming Analytics release in the Cloud that you want to deploy to. 
 
