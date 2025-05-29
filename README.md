@@ -27,19 +27,18 @@ You should regularly update your Apama installation, SDKs and OS packages to ens
 When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` from the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything updated using both OS commands (e.g. `apt`) and `git pull` (for the SDKs). 
 
 ### Cumulocity cloud operations
-For commands in the Block SDK or running block or EPL apps tests that require Cloud access (for example to upload to your tenant), we recommend creating a `.env` file in this directory, for example:
+For commands in the Block SDK or running block or EPL apps tests that require Cloud access (for example to upload to your tenant), some environment variables must be set to give your credentials. A convenient way to do this is to create a script named `c8y-vars` that you can source, for example:
 
 ```
-CUMULOCITY_SERVER_URL=<URL>
-CUMULOCITY_USERNAME=<USERNAME>
-CUMULOCITY_PASSWORD=<PASSWORD>
+export CUMULOCITY_SERVER_URL=TODO_URL
+export CUMULOCITY_USERNAME=TODO_USERNAME
+read -s CUMULOCITY_PASSWORD -p "Enter your CUMULOCITY_PASSWORD: "
+export CUMULOCITY_PASSWORD
 ```
 
-Just replace `<URL>`, `<USERNAME>` and `<PASSWORD>` with the correct values. 
+Just replace `TODO_URL` and `TODO_USERNAME` with the correct values. Before running commands that interact with the Cloud, execute `source c8y-vars` in your terminal window, which will set the required environment variables for authenticating to Cumulocity. When it asks for the password you can use a password manager to securely paste it in. 
 
-Before running commands that interact with the Cloud, execute `source .env` into your terminal. This will set the relevant environment variables for authenticating to Cumulocity. 
-
-__Important: since this file contains credentials, never commit the `.env` file or put it in a location others could access. This repository has a `.gitignore` rule to help avoid that mistake.__
+Feel free to commit this file into the repository if you wish. Of course it is very important to ensure the password is never saved in the repository. 
 
 ### Advanced: customizing the Dev Container
 If needed you can adjust some of the values within `.devcontainer/devcontainer.json` to use different base images and versions of the SDKs:
