@@ -20,6 +20,8 @@ Alternatively, GitHub provides an option to immediately start working with the t
 
 For more samples (and sample testcases) for working with Blocks and EPL Apps, see the [Block SDK](https://github.com/Cumulocity-IoT/apama-analytics-builder-block-sdk) and [EPL Apps Tools](https://github.com/Cumulocity-IoT/apama-eplapps-tools) repositories.
 
+If you already have an **existing Git repository** for your project, you can copy the `.devcontainer` directory from this template into it to add Dev Container support. You may also wish to copy the `.project` and `.dependencies` files from this template, especially if you don't already have an Apama project in your repository, or if you're using the Block SDK and EPL Apps Tools (since the relative path where they are present in the container may be different to where your current project looks for them). 
+
 ### Keeping up to date
 
 You should regularly update your Apama installation, SDKs and OS packages to ensure you have the latest fixes, security updates and features. 

@@ -19,5 +19,6 @@
 	},
 	"forwardPorts": [15904],
 	"overrideCommand": true,
-	"remoteUser": "apama"
+	"remoteUser": "apama",
+	"containerUser": "apama"
 }
