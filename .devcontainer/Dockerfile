@@ -3,7 +3,8 @@ ARG APAMA_IMAGE=public.ecr.aws/apama/apama-builder
 FROM ${APAMA_IMAGE}:${APAMA_VERSION}
 
 USER root
-RUN apt update && apt install git tar -y && apt clean
+ARG ADDITIONAL_PACKAGES=
+RUN apt update && apt install git tar ${ADDITIONAL_PACKAGES} -y && apt clean
 
 RUN mkdir "/workspaces" && chown -R apama.apama "/workspaces"
 
@@ -23,6 +24,8 @@ RUN ln -s ${APAMA_WORK}/apama-analytics-builder-block-sdk /apama-analytics-build
   && ln -s ${APAMA_WORK}/apama-eplapps-tools /apama-eplapps-tools
 
 USER apama
+ENV ANALYTICS_BUILDER_SDK=${APAMA_WORK}/apama-analytics-builder-block-sdk
+ENV PATH="${APAMA_WORK}/apama-eplapps-tools/scripts:${APAMA_WORK}/apama-analytics-builder-block-sdk:${PATH}"
 WORKDIR "/workspaces"
 
 ENV SHELL=/bin/bash
