@@ -42,7 +42,7 @@
 	</pysysdirconfig>
 
 	<project-help>
-		To configure these tests to interact with your Cumulocity cloud tenant, update the "c8y-env" file and "source" it before running the tests. 
+		To configure these tests to interact with your Cumulocity cloud tenant, update the "c8y-vars" file and "source" it before running the tests. 
 
 		To give you a chance to manually interact with the correlator while running a test, add "-XpauseDuringTest" to your "pysys run" command line. 
 
