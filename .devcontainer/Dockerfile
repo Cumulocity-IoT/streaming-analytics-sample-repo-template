@@ -25,6 +25,7 @@ RUN ln -s ${APAMA_WORK}/apama-analytics-builder-block-sdk /apama-analytics-build
 
 USER apama
 ENV ANALYTICS_BUILDER_SDK=${APAMA_WORK}/apama-analytics-builder-block-sdk
+ENV EPL_TESTING_SDK=${APAMA_WORK}/apama-eplapps-tools
 ENV PATH="${APAMA_WORK}/apama-eplapps-tools/scripts:${APAMA_WORK}/apama-analytics-builder-block-sdk:${PATH}"
 WORKDIR "/workspaces"
 
