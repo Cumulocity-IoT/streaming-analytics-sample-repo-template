@@ -28,19 +28,12 @@ You should regularly update your Apama installation, SDKs and OS packages to ens
 
 When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` from the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything updated using both OS commands (e.g. `apt`) and `git pull` (for the SDKs). 
 
-### Cumulocity cloud operations
-For commands in the Block SDK or running block or EPL apps tests that require Cloud access (for example to upload to your tenant), some environment variables must be set to give your credentials. A convenient way to do this is to create a script named `c8y-vars` that you can source, for example:
+### Cumulocity cloud credentials
+Many in the Block SDK or running block or EPL apps tests require Cloud access (for example to upload to your tenant), and some environment variables must be set to give your tenant credentials. 
 
-```
-export CUMULOCITY_SERVER_URL=TODO_URL
-export CUMULOCITY_USERNAME=TODO_USERNAME
-read -s CUMULOCITY_PASSWORD -p "Enter your CUMULOCITY_PASSWORD: "
-export CUMULOCITY_PASSWORD
-```
+A convenient way to do this is to edit the `c8y-vars` script in this repository to include the Cumulocity URL and username for your tenant. 
 
-Just replace `TODO_URL` and `TODO_USERNAME` with the correct values. Before running commands that interact with the Cloud, execute `source c8y-vars` in your terminal window, which will set the required environment variables for authenticating to Cumulocity. When it asks for the password you can use a password manager to securely paste it in. 
-
-Feel free to commit this file into the repository if you wish. Of course it is very important to ensure the password is never saved in the repository. 
+Then you whenever you open a new shell you get started quickly by running `source c8y-vars` to set these environment variables, and also prompt you to paste in your Cumulocity password (for example, using your favourite password manager application). Feel free to customize the script for your needs - but for security reasons be sure not to commit any passwords into version control. 
 
 ### Advanced: customizing the Dev Container
 If needed you can adjust some of the values within `.devcontainer/devcontainer.json` to use different base images and versions of the SDKs:

@@ -1,0 +1,14 @@
+
+# Please edit this script with your Cumulocity tenant URL and username. 
+
+# For security, the password should not be written here, but pasted in from a password manager when this script is sourced. 
+
+# NB: This script must sourced not executed, for example: source c8y-vars
+export CUMULOCITY_SERVER_URL=TODO_URL
+export CUMULOCITY_USERNAME=TODO_USERNAME
+echo "Setting up Cumulocity credentials for your tenant (from $(pwd)/c8y-vars)"
+echo "   Tenant URL is $CUMULOCITY_SERVER_URL and username is $CUMULOCITY_USERNAME"
+
+read -p "Please paste in the CUMULOCITY_PASSWORD for this tenant: " -s CUMULOCITY_PASSWORD
+export CUMULOCITY_PASSWORD
+echo
