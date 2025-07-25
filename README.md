@@ -29,9 +29,9 @@ You should regularly update your Apama installation, SDKs and OS packages to ens
 When using the dev container approach in VS Code, you can do this by running `Dev Containers: Rebuild Container` from the Command Palette (`F1`). This will wipe everything in the container, but not the workspace directory containing your project. If you are not using containers, you need to manually keep everything updated using both OS commands (e.g. `apt`) and `git pull` (for the SDKs). 
 
 ### Cumulocity cloud credentials
-Many in the Block SDK or running block or EPL apps tests require Cloud access (for example to upload to your tenant), and some environment variables must be set to give your tenant credentials. 
+You need to provide the URL and credentials for your Cumulocity tenant so that PySys can access it. 
 
-A convenient way to do this is to edit the `c8y-vars` script in this repository to include the Cumulocity URL and username for your tenant. 
+A convenient way to do this is to edit the `c8y-vars` script in this repository to set the Cumulocity URL and username environment variables required for your tenant. 
 
 Then whenever you open a new shell you get started quickly by running `source c8y-vars` to set these environment variables, and also prompt you to paste in your Cumulocity password (for example, using your favourite password manager application). Feel free to customize the script for your needs - but for security reasons be sure not to commit any passwords into version control. 
 
