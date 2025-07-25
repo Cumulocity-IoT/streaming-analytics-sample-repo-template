@@ -7,7 +7,7 @@
 	<property name="EPL_TESTING_SDK" value="${env.EPL_TESTING_SDK}" default="${testRootDir}/../../../apama-eplapps-tools" pathMustExist="true"/>
 
 	<!-- Set to the location containing your EPL application monitors -->
-	<property name="EPL_APPS" value="${env.EPL_APPS}" default="${testRootDir}/../../src" pathMustExist="true"/>
+	<property name="EPL_APPS" value="${env.EPL_APPS}" default="${testRootDir}/../../src/eplapps" pathMustExist="true"/>
 	
 	<!-- Specify the tenant which will be used to run the tests. -->
 	<property name="CUMULOCITY_SERVER_URL" value="${env.CUMULOCITY_SERVER_URL}" default="https://mytenant.example.com" />
@@ -42,9 +42,10 @@
 	</pysysdirconfig>
 
 	<project-help>
-		To allow these tests to interact with your Cumulocity cloud tenant, create a .env file 
-		that sets the CUMULOCITY_SERVER_URL and CUMULOCITY_USERNAME/PASSWORD variables and 
-		"source" it before running the tests. 
+		To configure these tests to interact with your Cumulocity cloud tenant, update the "c8y-vars" file and "source" it before running the tests. 
+
+		To give you a chance to manually interact with the correlator while running a test, add "-XpauseDuringTest" to your "pysys run" command line. 
+
 	</project-help>
 
 </pysysproject>
