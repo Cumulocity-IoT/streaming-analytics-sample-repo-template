@@ -33,7 +33,7 @@ Many in the Block SDK or running block or EPL apps tests require Cloud access (f
 
 A convenient way to do this is to edit the `c8y-vars` script in this repository to include the Cumulocity URL and username for your tenant. 
 
-Then you whenever you open a new shell you get started quickly by running `source c8y-vars` to set these environment variables, and also prompt you to paste in your Cumulocity password (for example, using your favourite password manager application). Feel free to customize the script for your needs - but for security reasons be sure not to commit any passwords into version control. 
+Then whenever you open a new shell you get started quickly by running `source c8y-vars` to set these environment variables, and also prompt you to paste in your Cumulocity password (for example, using your favourite password manager application). Feel free to customize the script for your needs - but for security reasons be sure not to commit any passwords into version control. 
 
 ### Advanced: customizing the Dev Container
 If needed you can adjust some of the values within `.devcontainer/devcontainer.json` to use different base images and versions of the SDKs:
